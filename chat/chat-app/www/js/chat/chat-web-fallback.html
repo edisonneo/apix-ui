@@ -1,0 +1,26 @@
+<ion-view view-title="Websites">
+  <div class="chat-web-fallback-content">
+    <div ng-repeat="result in vm.results" class="chat-web-fallback-item">
+      <a class="chat-web-fallback-item__trigger-link" rel="noopener" target="_blank" href="{{ result.redirectUrl }}">
+        <div class="chat-web-fallback-item__header">
+          <div class="chat-web-fallback-item__header-logo" ng-show="result.imageUrl.indexOf('http') === -1">
+            <h5 class="chat-web-fallback-item__header-logo-title">{{result.imageUrl}}</h5>
+          </div>
+          <div class="chat-web-fallback-item__header-logo-img" ng-show="result.imageUrl.indexOf('http') > -1">
+            <img class="chat-web-fallback-item__header-logo-img-src" src="{{result.imageUrl}}" />
+          </div>
+          <div class="chat-web-fallback-item__header-title">
+            <h6 class="chat-web-fallback-item__header-title-main">{{ result.title }}</h6>
+            <a class="chat-web-fallback-item__header-title-sublink" rel="noopener" target="_blank" href="{{ result.redirectUrl }}">{{ result.redirectUrl }}</a>
+          </div>
+        </div>
+        <div>
+          <hr class="chat-web-fallback-item__separator" />
+        </div>
+        <div class="chat-web-fallback-item__detail">
+            <p class="chat-web-fallback-item__detail" ng-bind-html="result.description"></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</ion-view>
