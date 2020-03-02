@@ -5,6 +5,7 @@
     .module('starter')
 
     .run(function (IdleService, $rootScope) {
+      console.log("APP RUN!")
       // listen for events triggered from parent window and control behavior of chat-app
       window.addEventListener('message', function (e) {
         // handle iframe closing
@@ -152,9 +153,13 @@
       };
 
       // get params from url
-      var botId = Util.getValueFromQueryString(window.location.search, 'botId');
+      // var botId = Util.getValueFromQueryString(window.location.search, 'botId');
+      var botId= "0d5bc393-c38a-c292-2944-78c2a01cc2a6";
       var lastModifiedMillis = Util.getValueFromQueryString(window.location.search, 't');
-      var serverUrl = Util.getValueFromQueryString(window.location.search, 'server');
+      var serverUrl = "https://wogmva-demo.taiger.io/iconverse-converse";
+
+      console.log("BOTIIIDDD")
+      console.log(botId);
 
       if (!botId || !serverUrl) {
         console.error(
@@ -176,12 +181,12 @@
       }
 
       var botBaseCssUrl = 'styles/app.css';
-      var botCustomCssUrl = serverUrl
-        + 'bots/'
-        + botId
-        + '/bot-css'
-        + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
-
+      // var botCustomCssUrl = serverUrl
+      //   + 'bots/'
+      //   + botId
+      //   + '/bot-css'
+      //   + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
+      var botCustomCssUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/0d5bc393-c38a-c292-2944-78c2a01cc2a6/bot-css"
       // Load bot custom css
       Util.loadCss(botCustomCssUrl, function (cssLink) {
         console.log('bot custom css loaded');
@@ -193,11 +198,12 @@
           console.log('bot base css loaded');
 
           // Load bot config
-          var botConfigUrl = serverUrl
-            + 'bots/'
-            + botId
-            + '/bot-configuration'
-            + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
+          // var botConfigUrl = serverUrl
+          //   + 'bots/'
+          //   + botId
+          //   + '/bot-configuration'
+          //   + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
+          var botConfigUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/0d5bc393-c38a-c292-2944-78c2a01cc2a6/bot-configuration"
           Util.fetchObjectAtUrl(botConfigUrl, function (appConfig) {
             console.log('bot config loaded: ', appConfig);
 
@@ -214,11 +220,12 @@
               window.__appOptions = appConfig;
 
               // Load bot name
-              var botNameUrl = serverUrl
-                + 'bots/'
-                + botId
-                + '/bot-name'
-                + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
+              // var botNameUrl = serverUrl
+              //   + 'bots/'
+              //   + botId
+              //   + '/bot-name'
+              //   + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
+              var botNameUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/0d5bc393-c38a-c292-2944-78c2a01cc2a6/bot-name"
               Util.fetchObjectAtUrl(botNameUrl, function (data) {
                 console.log('bot name loaded: ', data.botName);
                 window.__appOptions.appName = data.botName;

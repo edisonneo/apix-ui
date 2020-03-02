@@ -11,8 +11,8 @@
    * @param {string} config.chatBaseUrl
    */
   function Utils (config) {
-    this.bot = config.bot;
-    this.serverUrl = config.serverUrl;
+    this.bot = "0d5bc393-c38a-c292-2944-78c2a01cc2a6";
+    this.serverUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server";
     this.chatBaseUrl = config.chatBaseUrl;
   }
 
@@ -50,24 +50,26 @@
   };
 
   Utils.prototype.getConverseAppUrl = function () {
-    var supportedProtocols = ['http:', 'https:'];
-    var pathArray = serverUrl.split('/');
-    var protocol = pathArray[0];
+    // var supportedProtocols = ['http:', 'https:'];
+    // var pathArray = serverUrl.split('/');
+    // var protocol = pathArray[0];
 
 
-    var protocolExists = supportedProtocols.indexOf(protocol) > -1;
-    if (protocolExists) {
-      var host = pathArray[2];
-      return protocol + '//' + host + '/iconverse-converse';
-    }
-    return pathArray[0] + '/iconverse-converse';
+    // var protocolExists = supportedProtocols.indexOf(protocol) > -1;
+    // if (protocolExists) {
+    //   var host = pathArray[2];
+    //   return protocol + '//' + host + '/iconverse-converse';
+    // }
+    // return pathArray[0] + '/iconverse-converse';
+    return"https://wogmva-demo.taiger.io/iconverse-converse";
+
   };
 
   var utils = new Utils(env);
 
   function APIService (config) {
-    this.bot = config.bot;
-    this.serverUrl = config.serverUrl;
+    this.bot = "0d5bc393-c38a-c292-2944-78c2a01cc2a6";
+    this.serverUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server";
     this.chatBaseUrl = config.chatBaseUrl;
     this.converseServerUrl = utils.getConverseAppUrl();
   }
@@ -108,7 +110,7 @@
     }
 
     var request = new XMLHttpRequest();
-    var url = this.serverUrl + '/bots/' + this.bot + '/last-modified-date?' + Date.now();
+    var url = "https://wogmva-demo.taiger.io/iconverse-bot-server" + '/bots/' + this.bot + '/last-modified-date?' + Date.now();
 
     request.open('GET', url, true);
     request.onload = function () {
@@ -267,7 +269,7 @@
     iframe.id = this.constants.iframeCssId;
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute('class', 'invisible');
-    iframe.setAttribute('src', chatAppUrl);
+    iframe.setAttribute('src', '/chat/chat-app/');
 
     iframe.addEventListener('load', function () {
       if (typeof onLoaded === 'function') {

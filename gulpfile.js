@@ -174,11 +174,28 @@ gulp.task('build', function(callback) {
   runSequence(
     'install-chatapp-deps',
     'context:clean',
+    'context:minify-html',
     'widget:copy:base',
     'build:chat-app',
     callback
   );
 });
+
+// minify html inside context/dist folder
+// gulp.task('context:minify-html', function() {
+//   console.log("COPYING INDEX")``
+//   return gulp
+//     .src(`${contextPath}/index.html`)
+//     .pipe(
+//       htmlmin({
+//         collapseWhitespace: true,
+//         minifyCSS: true,
+//         minifyJS: true,
+//         removeComments: true,
+//       })
+//     )
+//     .pipe(gulp.dest(contextDistPath));
+// });
 
 /**
  * Grab node_modules for the app located at `chat/chat-app`
@@ -257,9 +274,9 @@ gulp.task('context:minify-script', function() {
 gulp.task('context:minify-html', function() {
   return gulp
     .src(`${config.contextPath}/index.html`)
-    .pipe(replace(/(var botId).*/i, "$1 = '${botId}';"))
-    .pipe(replace(/(var chatBaseUrl).*/i, "$1 = '';"))
-    .pipe(replace(/(var serverUrl).*/i, "$1 = '${pageContext.request.contextPath}';"))
+    // .pipe(replace(/(var botId).*/i, "$1 = '${botId}';"))
+    // .pipe(replace(/(var chatBaseUrl).*/i, "$1 = '';"))
+    // .pipe(replace(/(var serverUrl).*/i, "$1 = '${pageContext.request.contextPath}';"))
     .pipe(
       htmlmin({
         collapseWhitespace: true,
@@ -277,7 +294,7 @@ gulp.task('context:minify-html', function() {
         },
       })
     )
-    .pipe(inject.prepend('<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>\n'))
-    .pipe(rename('bot-preview.jsp'))
+    // .pipe(inject.prepend('<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>\n'))
+    // .pipe(rename('bot-preview.jsp'))
     .pipe(gulp.dest(config.contextDistPath));
 });

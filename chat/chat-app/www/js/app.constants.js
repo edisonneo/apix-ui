@@ -30,10 +30,10 @@
       }
     },
     appOptions: {
-      botId: '',
+      botId: '0d5bc393-c38a-c292-2944-78c2a01cc2a6',
       firstMessageTypingDelayMs: 400,
       typingDelayMs: 200,
-      appName: '',
+      appName: 'Converse',
       inputPlaceholder: 'Type here to start chatting...',
       idleDelayTimeMins: 3,
       isChatBubbleAvatarVisible: true,

@@ -35,8 +35,8 @@
       // Deployed version: serverUrl will be overridden in iconverse-bot-server jsp file
       var serverUrl = '';
 
-      var setupScriptUrl =
-        (chatBaseUrl ? chatBaseUrl + '/chat' : serverUrl + '/base') + '/widget/js/setup.js';
+      var setupScriptUrl = '/chat/widget/js/setup.js';
+        // (chatBaseUrl ? chatBaseUrl + '/chat' : serverUrl + '/base') + '/chat/widget/js/setup.js';
 
       // if there is no env override, create it and set the client-specific chatBaseUrl
       if (!window.__env || !window.__env.bot) {

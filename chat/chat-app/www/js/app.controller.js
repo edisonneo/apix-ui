@@ -642,7 +642,8 @@
         // Set up landing page
         vm.isShowLandingPage = vm.appOptions.isLandingPage;
         vm.sanitizedCustomHtml = $sce.trustAsHtml(vm.appOptions.customLandingPageHtml);
-
+        console.log("GET BOT ID")
+        console.log(vm.appOptions.botId);
         IconverseService.setBotId(vm.appOptions.botId);
         IdleService.setIdleDelayTimeMins(vm.appOptions.idleDelayTimeMins);
         ChatService.setFirstMsgTypingTimeMs(vm.appOptions.firstMessageTypingDelayMs);

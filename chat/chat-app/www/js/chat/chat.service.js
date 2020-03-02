@@ -73,7 +73,7 @@
         return {
           text: text || '',
           cid: cid || _cid || null,
-          lang: _lang.iso
+          lang: "en"
         };
       },
 

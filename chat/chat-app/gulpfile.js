@@ -62,7 +62,7 @@ gulp.task('build', function (callback) {
     'copy:fonts',
     'copy:ionic:fonts',
     'build:app',
-    'drop-debugger-logs',
+    // 'drop-debugger-logs',
     callback
   );
 });
@@ -151,7 +151,7 @@ gulp.task('build:app', function () {
       .pipe(gulpif('*.js', ngAnnotate({ add: true }))) // ng-annotate if .js
       .pipe(gulpif('*.js', uglify())) // minify .js
       // .pipe(replace('<script src="scripts/app.js"></script>', ''))
-      .pipe(replace('<link rel="stylesheet" href="styles/app.css">', ''))
+      // .pipe(replace('<link rel="stylesheet" href="styles/app.css">', ''))
       .pipe(gulpif('*.js', gulp.dest(distPaths.html))) // paste to dist
       .pipe(gulp.dest(distPaths.html))
   );

@@ -6,7 +6,7 @@
   IconverseService.$inject = ['$http'];
 
   function IconverseService ($http) {
-    var serverUrl = '';
+    var serverUrl = "https://wogmva-demo.taiger.io/iconverse-converse";
     var botId = '';
 
     return {
