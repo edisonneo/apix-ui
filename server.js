@@ -5,4 +5,4 @@ var app = express();
 app.use(express.static(__dirname + '/dist')); //Serves resources from public folder
 
 
-var server = app.listen(4000);
+var server = app.listen(4200);
