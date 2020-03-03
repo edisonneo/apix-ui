@@ -120,6 +120,7 @@ const setupContextHtml = function(
     .pipe(replace(/(var botId).*/i, "$1 = '" + botId + "';"))
     .pipe(replace(/(var serverUrl).*/i, "$1 = '" + botServerUrl + "';"))
     .pipe(replace(/(var chatBaseUrl).*/i, "$1 = '" + chatBaseUrl + "';"))
+    .pipe(replace(/(background\s*:\s*).*/i, `$1${background};`))
     .pipe(gulp.dest(targetPathForIndexHtml))
     .on('end', () => {
       if (cb) cb();
@@ -175,11 +176,19 @@ gulp.task('build', function(callback) {
     'install-chatapp-deps',
     'context:clean',
     'context:minify-html',
+    'context:copy-bg-image',
     'widget:copy:base',
     'build:chat-app',
     callback
   );
 });
+
+gulp.task('context:copy-bg-image', function(){
+  console.log("setup bg img")
+  gulp
+    .src([config.contextPath + '/prudential-bg.jpg'])
+    .pipe(gulp.dest(config.contextDistPath));
+})
 
 // minify html inside context/dist folder
 // gulp.task('context:minify-html', function() {

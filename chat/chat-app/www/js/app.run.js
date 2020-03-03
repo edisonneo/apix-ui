@@ -5,7 +5,6 @@
     .module('starter')
 
     .run(function (IdleService, $rootScope) {
-      console.log("APP RUN!")
       // listen for events triggered from parent window and control behavior of chat-app
       window.addEventListener('message', function (e) {
         // handle iframe closing
