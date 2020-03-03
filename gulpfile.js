@@ -184,7 +184,6 @@ gulp.task('build', function(callback) {
 });
 
 gulp.task('context:copy-bg-image', function(){
-  console.log("setup bg img")
   gulp
     .src([config.contextPath + '/prudential-bg.jpg'])
     .pipe(gulp.dest(config.contextDistPath));
