@@ -154,7 +154,7 @@
 
       // get params from url
       // var botId = Util.getValueFromQueryString(window.location.search, 'botId');
-      var botId= "0d5bc393-c38a-c292-2944-78c2a01cc2a6";
+      var botId= "1a08883f-4ec8-439a-8a1b-57c662da2856";
       var lastModifiedMillis = Util.getValueFromQueryString(window.location.search, 't');
       var serverUrl = "https://wogmva-demo.taiger.io/iconverse-converse";
 
@@ -186,7 +186,7 @@
       //   + botId
       //   + '/bot-css'
       //   + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
-      var botCustomCssUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/0d5bc393-c38a-c292-2944-78c2a01cc2a6/bot-css"
+      var botCustomCssUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/1a08883f-4ec8-439a-8a1b-57c662da2856/bot-css"
       // Load bot custom css
       Util.loadCss(botCustomCssUrl, function (cssLink) {
         console.log('bot custom css loaded');
@@ -203,7 +203,7 @@
           //   + botId
           //   + '/bot-configuration'
           //   + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
-          var botConfigUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/0d5bc393-c38a-c292-2944-78c2a01cc2a6/bot-configuration"
+          var botConfigUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/1a08883f-4ec8-439a-8a1b-57c662da2856/bot-configuration"
           Util.fetchObjectAtUrl(botConfigUrl, function (appConfig) {
             console.log('bot config loaded: ', appConfig);
 
@@ -211,7 +211,8 @@
               Util.insertInternalCss(appConfig.customLandingPageCss);
             }
 
-            var customBotAvatarImageUrl = serverUrl + 'bots/' + botId + '/avatar';
+            // var customBotAvatarImageUrl = serverUrl + 'bots/' + botId + '/avatar';
+            var customBotAvatarImageUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/1a08883f-4ec8-439a-8a1b-57c662da2856/avatar"
             Util.isCustomBotAvatarImageUrl(customBotAvatarImageUrl, function (isValid) {
               appConfig.botId = botId;
               appConfig.botAvatarImageUrl = isValid ? customBotAvatarImageUrl : 'img/avatar-default.png';
@@ -225,7 +226,7 @@
               //   + botId
               //   + '/bot-name'
               //   + (lastModifiedMillis ? '?' + lastModifiedMillis : '');
-              var botNameUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/0d5bc393-c38a-c292-2944-78c2a01cc2a6/bot-name"
+              var botNameUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server/bots/1a08883f-4ec8-439a-8a1b-57c662da2856/bot-name"
               Util.fetchObjectAtUrl(botNameUrl, function (data) {
                 console.log('bot name loaded: ', data.botName);
                 window.__appOptions.appName = data.botName;

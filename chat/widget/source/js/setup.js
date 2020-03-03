@@ -11,7 +11,7 @@
    * @param {string} config.chatBaseUrl
    */
   function Utils (config) {
-    this.bot = "0d5bc393-c38a-c292-2944-78c2a01cc2a6";
+    this.bot = "1a08883f-4ec8-439a-8a1b-57c662da2856";
     this.serverUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server";
     this.chatBaseUrl = config.chatBaseUrl;
   }
@@ -21,10 +21,11 @@
   };
 
   Utils.prototype.getBaseWidgetCssUrl = function () {
-    if (this.chatBaseUrl) {
-      return this.chatBaseUrl + '/chat/widget/css/chat-widget.css';
-    }
-    return this.serverUrl + '/base/widget/css/chat-widget.css';
+    // if (this.chatBaseUrl) {
+      return '/chat/widget/css/chat-widget.css';
+    // }
+    // return this.serverUrl + '/base/widget/css/chat-widget.css';
+
   };
 
   Utils.prototype.getCustomWidgetCssUrl = function (time) {
@@ -68,7 +69,7 @@
   var utils = new Utils(env);
 
   function APIService (config) {
-    this.bot = "0d5bc393-c38a-c292-2944-78c2a01cc2a6";
+    this.bot = "1a08883f-4ec8-439a-8a1b-57c662da2856";
     this.serverUrl = "https://wogmva-demo.taiger.io/iconverse-bot-server";
     this.chatBaseUrl = config.chatBaseUrl;
     this.converseServerUrl = utils.getConverseAppUrl();
