@@ -96,6 +96,17 @@
         return $http.post(serverUrl + '/rateAnswer', { cid: cid, correct: isPositive });
       },
 
+      downloadChatLog: function (cid) {
+        // return $http.get(serverUrl + '/downloadConversation?cid=' + cid);
+        return $http({
+          url: serverUrl + '/downloadConversation?cid=' + cid,
+          responseType: 'blob',
+          method: 'GET'
+        }).then(function (response) {
+          return response.data;
+        });
+      },
+
       uploadFile: function (formData) {
         return $http({
           url: serverUrl + '/uploadFile',
